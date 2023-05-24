@@ -8,7 +8,7 @@ import Water from './Water'
 // import { GLTFLoader } from "three-stdlib";
 
 export function ModelWorld(props) {
-  const { scene } = useGLTF('/models/world/coliseo.glb')
+  const { scene } = useGLTF('/models/world/world.glb')
   // const { nodes, materials } = useGLTF("/models/world/world.glb");
   return (
     <>
@@ -22,7 +22,7 @@ export function ModelWorld(props) {
   )
 }
 
-useGLTF.preload('/models/world/coliseo.glb')
+useGLTF.preload('/models/world/world.glb')
 
 export function Dog(props) {
   const { scene } = useGLTF('/dog.glb')
