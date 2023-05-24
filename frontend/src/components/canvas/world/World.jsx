@@ -2,10 +2,10 @@
 
 import React, { useRef, Suspense } from "react";
 import { useGLTF, Sky } from "@react-three/drei";
-import {Perf} from 'r3f-perf';
+// import {Perf} from 'r3f-perf';
 
 import Water from "./Water";
-import { GLTFLoader } from "three-stdlib";
+// import { GLTFLoader } from "three-stdlib";
 
 
 export function ModelWorld(props) {
