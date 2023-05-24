@@ -11,10 +11,10 @@
   },
   "scripts": {
     "lint": "next lint --fix --dir app",
-    "dev": "node unzip.js | next dev",
-    "build": "node unzip.js | next build",
-    "analyze": "node unzip.js | ANALYZE=true next build",
-    "start": "node unzip.js | next start"
+    "dev": "next dev",
+    "build": "next build",
+    "analyze": "ANALYZE=true next build",
+    "start": "next start"
   },
   "dependencies": {
     "@ducanh2912/next-pwa": "^8.2.0",

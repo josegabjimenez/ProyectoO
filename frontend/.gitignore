@@ -1,5 +1,5 @@
 # 3d Models
-*.glb
+# *.glb
 
 # dependencies
 /node_modules
