@@ -1,18 +1,22 @@
 'use client'
 
 import React, { useRef, Suspense } from 'react'
-import { useGLTF, Sky } from '@react-three/drei'
-// import {Perf} from 'r3f-perf';
-
+import { useLoader, useThree } from '@react-three/fiber'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import { Sky } from '@react-three/drei'
 import Water from './Water'
-// import { GLTFLoader } from "three-stdlib";
+import * as THREE from 'three'
 
 export function ModelWorld(props) {
-  const { scene } = useGLTF('/models/world/world.glb')
-  // const { nodes, materials } = useGLTF("/models/world/world.glb");
+  const gltf = useLoader(GLTFLoader, '/models/world/world.glb')
+  const { scene } = gltf
+  const { gl } = useThree()
+
+  // Configurar sRGBEncoding
+  gl.outputEncoding = THREE.sRGBEncoding
+
   return (
     <>
-      {/* <Perf position="top-left" /> */}
       <Sky sunPosition={[7, 60, 1]} rayleigh={0.4} />
       <Suspense fallback={null}>
         <primitive object={scene} {...props} />
@@ -22,10 +26,28 @@ export function ModelWorld(props) {
   )
 }
 
-useGLTF.preload('/models/world/world.glb')
+// 'use client'
 
-export function Dog(props) {
-  const { scene } = useGLTF('/dog.glb')
+// import React, { useRef, Suspense } from 'react'
+// import { useGLTF, Sky } from '@react-three/drei'
+// // import {Perf} from 'r3f-perf';
 
-  return <primitive object={scene} {...props} />
-}
+// import Water from './Water'
+// // import { GLTFLoader } from "three-stdlib";
+
+// export function ModelWorld(props) {
+//   const { scene } = useGLTF('/models/world/world.glb')
+//   // const { nodes, materials } = useGLTF("/models/world/world.glb");
+//   return (
+//     <>
+//       {/* <Perf position="top-left" /> */}
+//       <Sky sunPosition={[7, 60, 1]} rayleigh={0.4} />
+//       <Suspense fallback={null}>
+//         <primitive object={scene} {...props} />
+//       </Suspense>
+//       <Water />
+//     </>
+//   )
+// }
+
+// useGLTF.preload('/models/world/world.glb')
